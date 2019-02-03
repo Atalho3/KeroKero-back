@@ -47,6 +47,28 @@ module.exports = {
             .catch((error => res.status(400).send(error)))
         })
         .catch((error) => res.status(400).send(error))
+    },
+
+    rekweet(req,res){
+        return kweet
+        .findById(req.params.id)
+        .then(rekweet => {
+            if(!rekweet) return res.status(400).send({message: "kweet not found"})
+            return kweet
+            .create({
+                content: req.body.content, 
+                rk_id: req.params.id
+            })
+            .then(kweet => res.status(201).send(kweet))
+            .catch((error => {
+                console.log(error)
+                return res.status(400).send(error)
+            }))
+        })
+        .catch((error => {
+            console.log(error)
+            return res.status(400).send(error)
+        }))
     }
 
 }

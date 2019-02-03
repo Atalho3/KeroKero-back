@@ -14,5 +14,6 @@ router.get('/kweet',kweetController.list)
 router.post('/kweet',kweetController.post)
 router.delete('/kweet/:id',kweetController.delete)
 router.put('/kweet/:id',kweetController.edit)
+router.post('/kweet/rekweet/:id',kweetController.rekweet)
 
 module.exports = router;
