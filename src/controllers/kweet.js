@@ -11,7 +11,8 @@ module.exports = {
         if (req.body.content.length < 140 ){
             return kweet
             .create({
-                content: req.body.content
+                content: req.body.content,
+                user_id: req.body.user_id
             })
             .then(kweet => res.status(201).send(kweet))
             .catch((error) => res.status(400).send(error))
